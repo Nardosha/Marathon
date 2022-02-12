@@ -1,13 +1,30 @@
-TODO List
+## TODO List
 
 * Функция changeStatus - меняет статус задачи
-changeStatus("task", "status");
+  - changeStatus("taskName", "status");
+
+
+* Функция changePriority - меняет приоритет задачи
+  - changePriority("taskName", "priority");
+
+
+* Функция changeDate -меняет дату для текущей задачи 
+    - changeDate("taskName", "date")
+
 
 * Функция addTask - добавляет новую задачу
-addTask("task");
+    - addTask("taskName");
+  
 
-* Функция deleteTask - удаляет задачу
-deleteTask("task");
+* Функция deleteTask - удаляет указанную задачу
+    - deleteTask("taskName");
+  
 
-* Функция showList выводит весь список дел;
+* Функция showList выводит весь список задач
+    - showList();
+
+
+* Функция showBy выводит весь список задач по выбранному условию
+  - (showBy("option"))
+
 
