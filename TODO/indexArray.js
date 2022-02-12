@@ -1,4 +1,4 @@
-const list = [
+let list = [
     {
         name: 'create a post',
         status: 'In progress',
@@ -48,33 +48,34 @@ const options = {
 	status: ['TODO', 'In progress', 'Done'],
 }
 
-function changeStatus(taskName, status) {
-    list.forEach(task => task['name'] === taskName ? task['status'] = status : null)
+function changeStatus(taskName, newStatus) {
+	list.filter(task => task.name === taskName ? task.status = newStatus : null)
     return list
 }
-function changePriority(taskName, priority) {
-	list.forEach(task => task['name'] === taskName ? task['priority'] = priority : null)
+
+function changePriority(taskName, newPriority) {
+	list = list.filter(task => task.name === taskName ? task.priority = newPriority : null)
 	return list
 }
-function changeDate(taskName, date) {
-	list.forEach(task => task['name'] === taskName ? task['date'] = date : null)
+
+function changeDate(taskName, newDate) {
+	list = list.filter(task => task.name === taskName ? task.date = newDate : null)
 	return list
 }
 
 function addTask(taskName) {
-    const newTask = {
+	list.push ({
         name: taskName,
         status: options['status'][0],
         priority: options['priority'][0],
 		date: options['date'][0]
-    }
-    list.push(newTask)
-    return newTask
+    })
+	return list
 }
 
 function deleteTask(taskName) {
-    list.map((task, idx) => task['name'] === taskName ? list.splice(idx, 1) : null);
-    return list
+	list = list.filter(item => item.name !== taskName)
+	return list
 }
 
 function showList() {
@@ -84,8 +85,7 @@ function showList() {
 
 		if (key === 'status') {
 
-			for (let i = 0; i < options.status.length; i++) {
-				let currentStatus = options.status[i]
+			options.status.forEach(currentStatus => {
 				result += `${currentStatus}:\n`
 
 				list.forEach(
@@ -94,38 +94,38 @@ function showList() {
 						: null
 				)
 				result += `\n`
-			}
+			})
+
 		}
 	}
     return result
 }
 
-function showBy(value) {
-	let listOfValue = ``
+function showBy(condition) {
+	let listByCond = ``
 
-	for (let key in options) {
-		if (key === value) {
-			for (let i = 0; i < options[value].length; i++) {
-				let currentValue = options[value][i]
-				listOfValue += `${currentValue}:\n`
+	for (let option in options) {
+		if (option === condition) {
+
+			options[condition].forEach(currentCondition => {
+				listByCond += `${currentCondition}:\n`
 
 				list.forEach(
-					item => currentValue === item[value]
-						? listOfValue += `${item[`name`]}\n`
+					task => currentCondition === task[condition]
+						? listByCond += `${task[`name`]}\n`
 						: null
 				)
-				listOfValue += `\n`
-			}
+				listByCond += `\n`
+			})
 		}
 	}
-	return listOfValue
+	return listByCond
 }
 
-
-console.log(changeStatus('create a post', 'Done'))
-console.log(changePriority('water', 'High'));
-console.log(changeDate('test', 'tomorrow'));
+// console.log(changeStatus('create a post', 'Done'))
+// console.log(changePriority('water', 'High'));
+// console.log(changeDate('test', 'tomorrow'));
 // console.log(addTask('have a walk'))
 // console.log(deleteTask('test'))
 // console.log(showList())
-// console.log(showBy('date'))
+console.log(showBy('date'))

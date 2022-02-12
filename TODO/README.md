@@ -1,15 +1,15 @@
 ## TODO List
 
 * Функция changeStatus - меняет статус задачи
-  - changeStatus("taskName", "status");
+  - changeStatus("taskName", "newStatus");
 
 
 * Функция changePriority - меняет приоритет задачи
-  - changePriority("taskName", "priority");
+  - changePriority("taskName", "newPriority");
 
 
 * Функция changeDate -меняет дату для текущей задачи 
-    - changeDate("taskName", "date")
+    - changeDate("taskName", "newDate")
 
 
 * Функция addTask - добавляет новую задачу
@@ -25,6 +25,6 @@
 
 
 * Функция showBy выводит весь список задач по выбранному условию
-  - (showBy("option"))
+  - (showBy("condition"))
 
 
