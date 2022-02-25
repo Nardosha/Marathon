@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="wrapper">
+        <main class="calc">
+            <div class="calc__container _container">
+                <div class="calc__display">
+                    <input tabindex="-1" maxlength="5" type="number" class="calc__result" placeholder="0" autofocus>
+                </div>
+                <div class="calc__buttons button">
+                    <button data-action="clear" class="button__clear">C</button>
+                    <button data-action="delete" class="button__delete"></button>
+<!--                    <a href="#" class="button__delete"></a>-->
+                    <a href="#" class="button__blue div">÷</a>
+                    <button data-action="number" class="button__number">7</button>
+                    <a href="#" class="button__number">8</a>
+                    <a href="#" class="button__number">9</a>
+                    <a href="#" class="button__blue mult">×</a>
+                    <a href="#" class="button__number">4</a>
+                    <a href="#" class="button__number">5</a>
+                    <a href="#" class="button__number">6</a>
+                    <a href="#" class="button__blue sub">–</a>
+                    <a href="#" class="button__number">1</a>
+                    <a href="#" class="button__number">2</a>
+                    <a href="#" class="button__number">3</a>
+                    <a href="#" class="button__blue sum">+</a>
+                    <a href="#" class="button__zero">0</a>
+                    <a href="#" class="button__blue">=</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/index_calc_ui.js"></script>
+</body>
+</html>
