@@ -105,6 +105,7 @@ html {
   justify-content: center;
   align-items: center;
   justify-self: stretch;
+  cursor: pointer;
 }
 .calc__buttons .button__clear {
   grid-column: 1/3;
