@@ -106,6 +106,13 @@ html {
   align-items: center;
   justify-self: stretch;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.calc__buttons [class^=button__]:hover {
+  filter: brightness(1.1);
+}
+.calc__buttons [class^=button__]:active {
+  filter: brightness(0.5);
 }
 .calc__buttons .button__clear {
   grid-column: 1/3;

@@ -1,16 +1,11 @@
-const buttons = document.querySelector('.calc__buttons')
-const display = document.querySelector('.calc__result')
+// Imports
+import { buttons, display, OPERATIONS } from "./view.js";
+
+// Variables
 let a = ''
 let b = ''
 let action = ''
 let finish = false
-
-const OPERATIONS = {
-    sum: '+',
-    sub: '-',
-    mult: '*',
-    div: '/',
-}
 
 document.querySelector('.button__clear').onclick = clearAll
 document.querySelector('.button__delete').onclick = removeOne
@@ -59,6 +54,7 @@ buttons.addEventListener('click', function (e) {
     }
 })
 
+// Methods
 function getOperationType(type) {
     if (OPERATIONS[type]) {
         return OPERATIONS[type]
@@ -109,12 +105,15 @@ function calc() {
             return (+a) + (+b)
         case '-':
             return (+a) - (+b)
-        case '/':
+        case '÷':
             if (b === '0') {
-
+                a = ''
+                b = ''
+                action = ''
+                return display.textContent = 'Error!'
             }
-            return (+a) / (+b)
+            return ((+a) / (+b)).toFixed(2)
         case '*':
-            return (+a) * (+b)
+            return Math.round((+a) * (+b)).toFixed(2)
     }
 }

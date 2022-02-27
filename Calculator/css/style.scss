@@ -113,6 +113,15 @@ html {
       align-items: center;
       justify-self: stretch;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        filter: brightness(1.1);
+
+      }
+      &:active {
+        filter: brightness(0.5)
+      }
     }
 
     .button__clear {
