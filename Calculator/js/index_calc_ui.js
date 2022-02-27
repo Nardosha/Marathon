@@ -1,14 +1,9 @@
 const buttons = document.querySelector('.calc__buttons')
 const display = document.querySelector('.calc__result')
-
-const clearBtn = document.querySelector('.button__clear')
-const deleteBtn = document.querySelector('.button__delete')
-const numberBtns = document.querySelectorAll('.button__number')
-
-const divBtn = document.querySelector('.div')
-const multBtn = document.querySelector('.mult')
-const subBtn = document.querySelector('.sub')
-const sumBtn = document.querySelector('.sum')
+let a = ''
+let b = ''
+let action = ''
+let finish = false
 
 const OPERATIONS = {
     sum: '+',
@@ -17,50 +12,52 @@ const OPERATIONS = {
     div: '/',
 }
 
+document.querySelector('.button__clear').onclick = clearAll
+document.querySelector('.button__delete').onclick = removeOne
+
 buttons.addEventListener('click', function (e) {
+    if (display.textContent === '') display.textContent = '0'
+
     let button = e.target
     let actionType = button.dataset.action
     let digit = button.innerHTML
-    let number = display.value
-    let result = 0
 
     if (actionType === 'number') {
-        // getNumber(digit)
-        number += digit
-        display.value = number
+        if (b === '' && action === '') {
+            a += digit
+            display.textContent = a
+        } else if (a !== '' && b !== '' && finish) {
+            b = digit
+            display.textContent = b
+            finish = false
+
+        } else {
+            b += digit
+            display.textContent = b
+        }
+        return
     }
+
+    if (actionType in OPERATIONS) {
+        action = getOperationType(actionType)
+        display.textContent = action
+        return
+    }
+
     if (actionType === 'clear') {
-        display.value = ''
+        return;
     }
     if (actionType === 'delete') {
-        let lastChar = number.length - 1
-        let newValue = number.slice(0, lastChar);
-        display.value = newValue
-    }
-    if (actionType === 'sum' || actionType === 'sub' || actionType === 'mult' || actionType === 'div') {
-        let action = getOperationType(actionType)
-        let number1 = number
-        number = 0
-        display.value = ''
-
-        console.log(number1)
+        return;
     }
 
+    if (actionType === 'result') {
+        if (b === '') b = a
+        a = calc()
+        finish = true
+        display.textContent = a
+    }
 })
-
-display.addEventListener('change', function (e) {
-    let number = this.value
-})
-
-
-function getValue() {
-
-}
-
-function calc(a, b) {
-    let numberA
-    let numberB
-}
 
 function getOperationType(type) {
     if (OPERATIONS[type]) {
@@ -68,12 +65,56 @@ function getOperationType(type) {
     }
 }
 
-function getNumber(number) {
-    let number1 = number
-
-    return number1
+function clearAll() {
+    display.textContent = 0
+    a = ''
+    b = ''
+    action = ''
+    finish = false
 }
 
-getOperationType('sub')
+function removeOne() {
+    if (b === '') {
+        if (a.length > 1) {
+            let lastChar = a.length - 1
+            a = a.slice(0, lastChar);
+            display.textContent = a
+            return display.textContent
 
+        }
+        if (a.length <= 1) {
+            a = 0
+            display.textContent = 0
+            return display.textContent
+        }
+    } else {
+        if (b.length > 1) {
+            let lastChar = b.length - 1
+            b = b.slice(0, lastChar);
+            display.textContent = b
+            return display.textContent
 
+        }
+        if (b.length <= 1) {
+            b = 0
+            display.textContent = 0
+            return display.textContent
+        }
+    }
+}
+
+function calc() {
+    switch (action) {
+        case '+':
+            return (+a) + (+b)
+        case '-':
+            return (+a) - (+b)
+        case '/':
+            if (b === '0') {
+
+            }
+            return (+a) / (+b)
+        case '*':
+            return (+a) * (+b)
+    }
+}
