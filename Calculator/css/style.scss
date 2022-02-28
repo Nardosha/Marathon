@@ -1,0 +1,145 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/*---------------------------------------*/
+body,
+html {
+  width: 100%;
+  color: #fff;
+  font-family: 'Work Sans', sans-serif;
+}
+
+._container {
+  background-color: #17171C;
+  max-width: 364px;
+  height: 582px;
+  padding: 21px 20px 25px 20px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.calc {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__display {
+    text-align: right;
+    place-items: center;
+
+    .calc__result {
+      font-size: 96px;
+      font-weight: 300;
+      line-height: 100%;
+      max-width: 300px;
+      background-color: inherit;
+      color: inherit;
+      text-align: right;
+      font-family: inherit;
+      outline: none;
+      caret-color: transparent;
+      pointer-events: none;
+
+      &::placeholder {
+        color: inherit;
+      }
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance:textfield;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4, 69px);
+    grid-template-rows: repeat(5, 72px);
+
+    [class^="button__"] {
+      background-color: #2E2F38;
+      border-radius: 24px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 32px;
+      line-height: 125%;
+      font-weight: 400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-self: stretch;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        filter: brightness(1.1);
+
+      }
+      &:active {
+        filter: brightness(0.5)
+      }
+    }
+
+    .button__clear {
+      grid-column: 1/3;
+      background: #4E505F;
+    }
+
+    .button__blue {
+      background-color: #4B5EFC;
+    }
+
+    .button__delete {
+      background: #2E2F38 url(../assets/icons/delete.svg) 50% 50% no-repeat;
+    }
+
+    .button__zero {
+      grid-column: 1/4;
+    }
+  }
+
+}

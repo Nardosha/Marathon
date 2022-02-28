@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/*---------------------------------------*/
+body,
+html {
+  width: 100%;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
+}
+
+._container {
+  background-color: #17171C;
+  max-width: 364px;
+  height: 582px;
+  padding: 21px 20px 25px 20px;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.calc__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.calc__display {
+  text-align: right;
+  place-items: center;
+}
+.calc__display .calc__result {
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 100%;
+  max-width: 300px;
+  background-color: inherit;
+  color: inherit;
+  text-align: right;
+  font-family: inherit;
+  outline: none;
+  caret-color: transparent;
+  pointer-events: none;
+}
+.calc__display .calc__result::placeholder {
+  color: inherit;
+}
+.calc__display input[type=number]::-webkit-outer-spin-button,
+.calc__display input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.calc__display input[type=number] {
+  -moz-appearance: textfield;
+}
+.calc__buttons {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 69px);
+  grid-template-rows: repeat(5, 72px);
+}
+.calc__buttons [class^=button__] {
+  background-color: #2E2F38;
+  border-radius: 24px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+  line-height: 125%;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: stretch;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.calc__buttons [class^=button__]:hover {
+  filter: brightness(1.1);
+}
+.calc__buttons [class^=button__]:active {
+  filter: brightness(0.5);
+}
+.calc__buttons .button__clear {
+  grid-column: 1/3;
+  background: #4E505F;
+}
+.calc__buttons .button__blue {
+  background-color: #4B5EFC;
+}
+.calc__buttons .button__delete {
+  background: #2E2F38 url(../assets/icons/delete.svg) 50% 50% no-repeat;
+}
+.calc__buttons .button__zero {
+  grid-column: 1/4;
+}
+
+/*# sourceMappingURL=style.css.map */
